@@ -60,7 +60,7 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
     Shope.prototype.customersPerHour =function(){
         
         for(let i=0;i<hours.length;i++){
-            let cust=Math.ceil(randomNumber(this.minCustomers,this.maxCustomers))
+            let cust=Math.ceil(randomNumber(this.minCustomers,this.maxCustomers)*this.averageCookies)
                     this.locationInfo.push(cust);
         }
      };
@@ -102,8 +102,9 @@ Lima.renader();
 //------------------------
 function CitiesHoursTotal() {
     let arrOFTotal = [];
+    let sumArrayTotal=0;
     for (let i = 0; i < hours.length; i++) {
-        let sumArrayTotal = seattle.cookiesPurchased[i] + tokyo.cookiesPurchased[i] + Dubai.cookiesPurchased[i] + Paris.cookiesPurchased[i] + Lima.cookiesPurchased[i]
+        sumArrayTotal = seattle.locationInfo[i] + tokyo.locationInfo[i] + Dubai.locationInfo[i] + Paris.locationInfo[i] + Lima.locationInfo[i]
         arrOFTotal.push(sumArrayTotal);
     }
     return arrOFTotal;
