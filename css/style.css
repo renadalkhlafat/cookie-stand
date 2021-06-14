@@ -1,14 +1,38 @@
-body img{
-    width: 150 px;
+body{
+    background: #CEE5D0;
 }
-ul{
+header nav ul{
+    list-style: none;
+}
+header nav ul li {
+    display: inline-block;
+    border: #5E454B 5px solid;
+    padding: 5px;
+}
+body ul{
     list-style: circle;
     padding: 20px;
 }
 h1{
     font-size: 200;
     font-weight: 700px;
+    background: #5E454B;
+    color:#F3F0D7;
+    line-height: 1.5;
+    text-align: center;
 }
 h2{
     font-size: 150;
 }
+table{
+    width: 100%;
+}
+th{height: 70px;}
+table, th{
+    font-size: large;
+    font-weight: bold;
+}
+table, th, td {
+    border: 1px solid black;
+    font-size: large;
+  }
