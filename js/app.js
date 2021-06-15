@@ -113,7 +113,7 @@ Lima.renader();
 //     return arrOFTotal;
 // }
 
-let dailyTotal=Seattle.totalCookies + Tokyo.totalCookies + Dubai.totalCookies + Paris.totalCookies + Lima.totalCookies;;
+//let dailyTotal=Seattle.totalCookies + Tokyo.totalCookies + Dubai.totalCookies + Paris.totalCookies + Lima.totalCookies;;
 
 function renderTableFooter(){
     let tableFooter = document.createElement('tr');
