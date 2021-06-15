@@ -132,7 +132,7 @@ function renderTableFooter(){
           hoursTotal+=Shope.allCookies[j].locationInfo[i];
           dailyTotal+=Shope.allCookies[j].locationInfo[i];
        }
-        eachTotal.textContent= CitiesHoursTotal()[i];
+        eachTotal.textContent= hoursTotal;
         tableFooter.appendChild(eachTotal);
        
     }
