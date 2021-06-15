@@ -126,7 +126,7 @@ function renderTableFooter(){
       let dailyTotal = 0;
      let hoursTotal = 0;
     for (let i = 0; i < hours.length; i++) {
-         hoursTotal = 0;
+         dailyTotal = 0;
        let eachTotal = document.createElement('td');
        for(let j=0;j< Shope.allCookies.length;j++){
           hoursTotal+=Shope.allCookies[j].locationInfo[i];
