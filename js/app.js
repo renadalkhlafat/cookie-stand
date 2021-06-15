@@ -37,7 +37,10 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
     this.totalCookies=0;
     this.locationInfo=[];
     this.cookiesPerchased=[];
+   Shope.allCookies.push(this);
 }
+Shope.allCookies=[];
+
     Shope.prototype.renader =function(){
         let bodyTable = document.createElement('tr');
         mainTable.appendChild(bodyTable);
@@ -100,15 +103,15 @@ Lima.getcookiesPerchased();
 Lima.renader();
 
 //------------------------
-function CitiesHoursTotal() {
-    let arrOFTotal = [];
-    let sumArrayTotal=0;
-    for (let i = 0; i < hours.length; i++) {
-        sumArrayTotal = Seattle.locationInfo[i] + Tokyo.locationInfo[i] + Dubai.locationInfo[i] + Paris.locationInfo[i] + Lima.locationInfo[i]
-        arrOFTotal.push(sumArrayTotal);
-    }
-    return arrOFTotal;
-}
+// function CitiesHoursTotal() {
+//     let arrOFTotal = [];
+//     let sumArrayTotal=0;
+//     for (let i = 0; i < hours.length; i++) {
+//         sumArrayTotal = Seattle.locationInfo[i] + Tokyo.locationInfo[i] + Dubai.locationInfo[i] + Paris.locationInfo[i] + Lima.locationInfo[i]
+//         arrOFTotal.push(sumArrayTotal);
+//     }
+//     return arrOFTotal;
+// }
 
 let dailyTotal=Seattle.totalCookies + Tokyo.totalCookies + Dubai.totalCookies + Paris.totalCookies + Lima.totalCookies;;
 
@@ -119,12 +122,18 @@ function renderTableFooter(){
     let totalDes = document.createElement('th');
     totalDes.textContent = ' Total';
     tableFooter.appendChild(totalDes);
-
+   
+      let dailyTotal = 0;
     for (let i = 0; i < hours.length; i++) {
-        // let hoursTotal = 0;
-        let eachTotal = document.createElement('td');
+          let hoursTotal = 0;
+       let eachTotal = document.createElement('td');
+       for(let j=0;j< Shope.allCookies.length;j++){
+          hoursTotal+=Shope.allCookies[j].locationInfo[i];
+          dailyTotal+=Shope.allCookies[j].locationInfo[i];
+       }
         eachTotal.textContent= CitiesHoursTotal()[i];
         tableFooter.appendChild(eachTotal);
+       
     }
     let totalOftotal = document.createElement('th');
     totalOftotal.textContent = dailyTotal;
