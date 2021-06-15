@@ -1,12 +1,10 @@
 'use strict';
 let mainElement= document.getElementById('salesDetailes');
 const mainTable = document.getElementById('mainTable');
-// mainElement.appendChild(mainTable);
 
 function randomNumber (min,max){
    return Math.floor(Math.random() * (max - min+ 1) +  min);
 }
-//    console.log(randomNumber(5,3))
 let hours= ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm'];
 
 //------------------------build table header function-------------------
@@ -29,6 +27,7 @@ function renderTableHeader() {
   }
   renderTableHeader()//call the header render function
 //--------------------create shope constructor----------------------------
+let allcook=[];
 function Shope(name,minCustomers,maxCustomers,averageCookies){
     this.name=name;
     this.minCustomers=minCustomers;
@@ -37,7 +36,9 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
     this.totalCookies=0;
     this.locationInfo=[];
     this.cookiesPerchased=[];
+    allcook.push(this);
 }
+
     Shope.prototype.renader =function(){
         let bodyTable = document.createElement('tr');
         mainTable.appendChild(bodyTable);
@@ -54,8 +55,6 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
     let dailyCookies = document.createElement('td');
     dailyCookies.textContent = this.totalCookies;
     bodyTable.appendChild(dailyCookies);
-
-    // mainTable.appendChild(bodyTable);
 }
     Shope.prototype.customersPerHour =function(){
         
@@ -100,18 +99,27 @@ Lima.getcookiesPerchased();
 Lima.renader();
 
 //------------------------
-function CitiesHoursTotal() {
-    let arrOFTotal = [];
+let arrOFTotal = [];
+function CitiesHoursTotal(index) {
     let sumArrayTotal=0;
-    for (let i = 0; i < hours.length; i++) {
-        sumArrayTotal = seattle.locationInfo[i] + tokyo.locationInfo[i] + Dubai.locationInfo[i] + Paris.locationInfo[i] + Lima.locationInfo[i]
+
+    for (let i = 0; i < allcook.length ; i++) {
+        sumArrayTotal += allcook[i].cookiesPerchased[index];
         arrOFTotal.push(sumArrayTotal);
     }
-    return arrOFTotal;
+    return sumArrayTotal;
 }
+//---------------------------
+function totalOfTotalCook(){
+    let tot=0;
+    for (let i = 0; i < arrOFTotal.length ; i++){
+        tot +=arrOFTotal[i];   
+    }
+    console.log(tot);
+    return tot;
 
-let dailyTotal=seattle.totalCookies + tokyo.totalCookies + Dubai.totalCookies + Paris.totalCookies + Lima.totalCookies;;
-
+}
+//-------------------create function to render the table footer ----------------------
 function renderTableFooter(){
     let tableFooter = document.createElement('tr');
     mainTable.appendChild(tableFooter);
@@ -123,11 +131,12 @@ function renderTableFooter(){
     for (let i = 0; i < hours.length; i++) {
         // let hoursTotal = 0;
         let eachTotal = document.createElement('td');
-        eachTotal.textContent= CitiesHoursTotal()[i];
+        eachTotal.textContent= CitiesHoursTotal(i);
         tableFooter.appendChild(eachTotal);
     }
     let totalOftotal = document.createElement('td');
-    totalOftotal.textContent = dailyTotal;
+    totalOftotal.textContent = totalOfTotalCook();
     tableFooter.appendChild(totalOftotal);
 }
+//call the footer render function
     renderTableFooter();
