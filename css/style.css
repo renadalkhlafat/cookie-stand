@@ -13,6 +13,9 @@ body ul{
     list-style: circle;
     padding: 20px;
 }
+body ul li{
+    font-family: 'Courier New', Courier, monospace;
+}
 h1{
     font-size: 200;
     font-weight: 700px;
@@ -22,12 +25,13 @@ h1{
     text-align: center;
 }
 h2{
-    font-size: 150;
+    font-size: 60;
 }
 table{
     width: 100%;
 }
 th{height: 70px;}
+
 table, th{
     font-size: large;
     font-weight: bold;
@@ -35,4 +39,49 @@ table, th{
 table, th, td {
     border: 1px solid black;
     font-size: large;
-  }
+}
+
+footer{
+      line-height: 1.5;
+      text-align: center;
+      justify-content: center;
+      background: #5E454B;
+      color:#F3F0D7;
+    }
+p{
+    line-height: 1.5;
+    overflow: auto;
+    font-family: 'Courier New', Courier, monospace;
+}
+figure{
+    width: 100%;
+    display: inline-block;
+    margin: 50;
+    
+}
+/* body main.workHour{
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+/* main section{
+    width: 100%;
+    margin-bottom:30px ;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+main div section:nth-child(1) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+/* {
+    /* display: grid;
+    grid-template-columns: repeat(3, 1fr);
+     */
+/* } */ 
+main .aboutMe img{
+width: 50%;
+margin: auto;
+}
