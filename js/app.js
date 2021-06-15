@@ -42,7 +42,7 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
         let bodyTable = document.createElement('tr');
         mainTable.appendChild(bodyTable);
 
-    let nameOfCity = document.createElement('td');
+    let nameOfCity = document.createElement('th');
     nameOfCity.textContent = this.name;
     bodyTable.appendChild(nameOfCity);
 
@@ -51,7 +51,7 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
         dailySales.textContent = this.cookiesPerchased[i];
         bodyTable.appendChild(dailySales);
     }
-    let dailyCookies = document.createElement('td');
+    let dailyCookies = document.createElement('th');
     dailyCookies.textContent = this.totalCookies;
     bodyTable.appendChild(dailyCookies);
 
@@ -116,7 +116,7 @@ function renderTableFooter(){
     let tableFooter = document.createElement('tr');
     mainTable.appendChild(tableFooter);
 
-    let totalDes = document.createElement('td');
+    let totalDes = document.createElement('th');
     totalDes.textContent = ' Total';
     tableFooter.appendChild(totalDes);
 
@@ -126,7 +126,7 @@ function renderTableFooter(){
         eachTotal.textContent= CitiesHoursTotal()[i];
         tableFooter.appendChild(eachTotal);
     }
-    let totalOftotal = document.createElement('td');
+    let totalOftotal = document.createElement('th');
     totalOftotal.textContent = dailyTotal;
     tableFooter.appendChild(totalOftotal);
 }
