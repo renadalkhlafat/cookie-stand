@@ -74,15 +74,15 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
     };
 
 //---------------------------create the objects and call the methods-------
-let seattle=new Shope('Seattle',23 ,65 ,3.6 ,0);
-seattle.customersPerHour();
-seattle.getcookiesPerchased();
-seattle.renader();
+let Seattle=new Shope('Seattle',23 ,65 ,3.6 ,0);
+Seattle.customersPerHour();
+Seattle.getcookiesPerchased();
+Seattle.renader();
 
-let tokyo=new Shope('Tokyo',3 ,24 ,1.2 ,0);
-tokyo.customersPerHour();
-tokyo.getcookiesPerchased();
-tokyo.renader();
+let Tokyo=new Shope('Tokyo',3 ,24 ,1.2 ,0);
+Tokyo.customersPerHour();
+Tokyo.getcookiesPerchased();
+Tokyo.renader();
 
 let Dubai=new Shope('Dubai',11 ,38 ,3.7 ,0);
 Dubai.customersPerHour();
@@ -104,13 +104,13 @@ function CitiesHoursTotal() {
     let arrOFTotal = [];
     let sumArrayTotal=0;
     for (let i = 0; i < hours.length; i++) {
-        sumArrayTotal = seattle.locationInfo[i] + tokyo.locationInfo[i] + Dubai.locationInfo[i] + Paris.locationInfo[i] + Lima.locationInfo[i]
+        sumArrayTotal = Seattle.locationInfo[i] + Tokyo.locationInfo[i] + Dubai.locationInfo[i] + Paris.locationInfo[i] + Lima.locationInfo[i]
         arrOFTotal.push(sumArrayTotal);
     }
     return arrOFTotal;
 }
 
-let dailyTotal=seattle.totalCookies + tokyo.totalCookies + Dubai.totalCookies + Paris.totalCookies + Lima.totalCookies;;
+let dailyTotal=Seattle.totalCookies + Tokyo.totalCookies + Dubai.totalCookies + Paris.totalCookies + Lima.totalCookies;;
 
 function renderTableFooter(){
     let tableFooter = document.createElement('tr');
