@@ -132,6 +132,7 @@ function renderTableFooter(){
           hoursTotal+=Shope.allCookies[j].locationInfo[i];
           dailyTotal+=Shope.allCookies[j].locationInfo[i];
        }
+       let th=document.createElement('th');
         eachTotal.textContent= hoursTotal;
         tableFooter.appendChild(eachTotal);
        
