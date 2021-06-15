@@ -135,7 +135,7 @@ function renderTableFooter(){
           
        }
        let th=document.createElement('th');
-        eachTotal.textContent= hoursTotal;
+        eachTotal.textContent= dailyTotal;
         tableFooter.appendChild(eachTotal);
        
     }
