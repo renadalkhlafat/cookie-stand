@@ -131,7 +131,7 @@ function renderTableFooter(){
        for(let j=0;j< Shope.allCookies.length;j++){
          
           dailyTotal+=Shope.allCookies[j].locationInfo[i];
-          hoursTotal+=Shope.allCookies[j].locationInfo[i];
+          hoursTotal+=dailyTotal;
           
        }
        let th=document.createElement('th');
