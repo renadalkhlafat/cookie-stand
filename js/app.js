@@ -29,6 +29,7 @@ function renderTableHeader() {
   }
   renderTableHeader()//call the header render function
 //--------------------create shope constructor----------------------------
+let allcook=[];
 function Shope(name,minCustomers,maxCustomers,averageCookies){
     this.name=name;
     this.minCustomers=minCustomers;
@@ -37,9 +38,8 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
     this.totalCookies=0;
     this.locationInfo=[];
     this.cookiesPerchased=[];
-   Shope.allCookies.push(this);
+    allcook.push(this);
 }
-Shope.allCookies=[];
 
     Shope.prototype.renader =function(){
         let bodyTable = document.createElement('tr');
@@ -102,19 +102,28 @@ Lima.customersPerHour();
 Lima.getcookiesPerchased();
 Lima.renader();
 
-//------------------------
-// function CitiesHoursTotal() {
-//     let arrOFTotal = [];
-//     let sumArrayTotal=0;
-//     for (let i = 0; i < hours.length; i++) {
-//         sumArrayTotal = Seattle.locationInfo[i] + Tokyo.locationInfo[i] + Dubai.locationInfo[i] + Paris.locationInfo[i] + Lima.locationInfo[i]
-//         arrOFTotal.push(sumArrayTotal);
-//     }
-//     return arrOFTotal;
-// }
+//-----------------------------------------------
+let arrOFTotal = [];
+function CitiesHoursTotal(index) {
+    let sumArrayTotal=0;
 
-//let dailyTotal=Seattle.totalCookies + Tokyo.totalCookies + Dubai.totalCookies + Paris.totalCookies + Lima.totalCookies;;
+    for (let i = 0; i < allcook.length ; i++) {
+        sumArrayTotal += allcook[i].cookiesPerchased[index];
+        arrOFTotal.push(sumArrayTotal);
+    }
+    return sumArrayTotal;
+}
+//------------------------------------------------------
+function totalOfTotalCook(){
+    let tot=0;
+    for (let i = 0; i < arrOFTotal.length ; i++){
+        tot +=arrOFTotal[i];   
+    }
+    console.log(tot);
+    return tot;
 
+}
+//--------------------function to render the table footer
 function renderTableFooter(){
     let tableFooter = document.createElement('tr');
     mainTable.appendChild(tableFooter);
@@ -126,21 +135,16 @@ function renderTableFooter(){
       let dailyTotal = 0;
      let hoursTotal = 0;
     for (let i = 0; i < hours.length; i++) {
-         dailyTotal = 0;
-       let eachTotal = document.createElement('td');
-       for(let j=0;j< Shope.allCookies.length;j++){
-         
-          dailyTotal+=Shope.allCookies[j].locationInfo[i];
-          hoursTotal+=dailyTotal;
-          
-       }
-       let th=document.createElement('th');
-        eachTotal.textContent= dailyTotal;
+        // let hoursTotal = 0;
+        let eachTotal = document.createElement('td');
+        eachTotal.textContent= CitiesHoursTotal(i);
         tableFooter.appendChild(eachTotal);
        
     }
-    let totalOftotal = document.createElement('th');
-    totalOftotal.textContent = hoursTotal;
+    let totalOftotal = document.createElement('td');
+    totalOftotal.textContent = totalOfTotalCook();
     tableFooter.appendChild(totalOftotal);
+
 }
+//----------- call the renderTableFooter function -----------------
     renderTableFooter();
