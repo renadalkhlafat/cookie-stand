@@ -1,13 +1,13 @@
 'use strict';
 let mainElement= document.getElementById('salesDetailes');
 const mainTable = document.getElementById('mainTable');
-// mainElement.appendChild(mainTable);
 
 function randomNumber (min,max){
    return Math.floor(Math.random() * (max - min+ 1) +  min);
 }
-//    console.log(randomNumber(5,3))
+
 let hours= ['6 am', '7 am', '8 am', '9 am', '10 am', '11 am', '12 pm', '1 pm', '2 pm', '3 pm', '4 pm', '5 pm', '6 pm', '7 pm'];
+let addLocation = document.getElementById('addNew');
 
 //------------------------build table header function-------------------
 function renderTableHeader() {
@@ -27,7 +27,7 @@ function renderTableHeader() {
     totalForLocation.textContent = 'Daily Location Total';
     hoursTbl.appendChild(totalForLocation);
   }
-  renderTableHeader()//call the header render function
+ 
 //--------------------create shope constructor----------------------------
 let allcook=[];
 function Shope(name,minCustomers,maxCustomers,averageCookies){
@@ -78,30 +78,11 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
 
 //---------------------------create the objects and call the methods-------
 let Seattle=new Shope('Seattle',23 ,65 ,3.6 ,0);
-Seattle.customersPerHour();
-Seattle.getcookiesPerchased();
-Seattle.renader();
-
 let Tokyo=new Shope('Tokyo',3 ,24 ,1.2 ,0);
-Tokyo.customersPerHour();
-Tokyo.getcookiesPerchased();
-Tokyo.renader();
-
 let Dubai=new Shope('Dubai',11 ,38 ,3.7 ,0);
-Dubai.customersPerHour();
-Dubai.getcookiesPerchased();
-Dubai.renader();
-
 let Paris=new Shope('Paris',20 ,38 ,2.3 ,0);
-Paris.customersPerHour();
-Paris.getcookiesPerchased();
-Paris.renader();
-
 let Lima=new Shope('Lima',2 ,16 ,4.6 ,0);
-Lima.customersPerHour();
-Lima.getcookiesPerchased();
-Lima.renader();
-
+// renderTableFooter();
 //-----------------------------------------------
 let arrOFTotal = [];
 function CitiesHoursTotal(index) {
@@ -132,10 +113,7 @@ function renderTableFooter(){
     totalDes.textContent = ' Total';
     tableFooter.appendChild(totalDes);
    
-      let dailyTotal = 0;
-     let hoursTotal = 0;
     for (let i = 0; i < hours.length; i++) {
-        // let hoursTotal = 0;
         let eachTotal = document.createElement('td');
         eachTotal.textContent= CitiesHoursTotal(i);
         tableFooter.appendChild(eachTotal);
@@ -146,5 +124,49 @@ function renderTableFooter(){
     tableFooter.appendChild(totalOftotal);
 
 }
+
+    
+//-------------create action listener function ---------------------
+
+function createNewLocation(event){
+    event.preventDefault();
+    let cityName = event.target.cityName.value.split(',');
+    let minCust = event.target.minCustomer.value;
+    let maxCust = event.target.maxCustomer.value;
+    let avg = event.target.avgCookies.value;
+
+    mainTable.innerHTML='';
+    renderAndCalc();
+
+    new Shope(cityName,minCust,maxCust,avg);
+    let flag=false;
+    for(let i=0;i<allcook.length;i++){
+    if ((allcook[i].name).toLowerCase() === event.target.cityName.value.toLowerCase())
+    {
+        alert('This location already exist \n please try to change the name');
+        flag=false;
+        break ;
+    }else{flag=true;}
+ }  
+    if(flag){
+        new Shope(cityName,minCust,maxCust,avg);
+        renderAndCalc();
+    }
+}
+
+addLocation.addEventListener('submit',createNewLocation);
 //----------- call the renderTableFooter function -----------------
+
+function renderAndCalc(){
+    renderTableHeader()//call the header render function
+
+    for (let i in allcook)
+    {
+        allcook[i].customersPerHour()
+        allcook[i].getcookiesPerchased()
+        allcook[i].renader()
+    }
     renderTableFooter();
+}
+renderAndCalc();
+
