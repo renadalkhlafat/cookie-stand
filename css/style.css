@@ -16,18 +16,20 @@ body ul{
     padding: 20px;
 }
 body ul li{
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto Slab', serif;
 }
 h1{
     font-size: 200;
     font-weight: 700px;
     background: #5E454B;
     color:#F3F0D7;
+    font-family: 'Roboto Slab', serif;
     line-height: 1.5;
     text-align: center;
 }
 h2{
     font-size: 60;
+    font-family: 'Roboto Slab', serif;
 }
 table{
     width: 80%;
@@ -49,6 +51,7 @@ table, th{
 table, th, td {
     border: 1px solid black;
     font-size: large;
+    font-family: 'Oswald', sans-serif;
 }
 
 footer{
@@ -61,14 +64,20 @@ footer{
 p{
     line-height: 1.5;
     overflow: auto;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Roboto Slab', serif;
 }
-figure{
-    width: 100%;
-    display: inline-block;
-    margin: 50;
-    
-}
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+  }
+  
+  /* Clear floats after image containers */
+  .row::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
 /* body main.workHour{
     width: 100%;
     align-items: center;
