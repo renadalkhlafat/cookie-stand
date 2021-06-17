@@ -119,7 +119,7 @@ function renderTableFooter(){
         tableFooter.appendChild(eachTotal);
        
     }
-    let totalOftotal = document.createElement('td');
+    let totalOftotal = document.createElement('th');
     totalOftotal.textContent = totalOfTotalCook();
     tableFooter.appendChild(totalOftotal);
 

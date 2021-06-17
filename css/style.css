@@ -40,7 +40,9 @@ table{
 }
 th{height: 40px;
     align-items: center;
-    justify-content: center;}
+    justify-content: center;
+    background: #5E454B;
+    color:#F3F0D7 ;}
 
 table, th{
     font-size: large;
