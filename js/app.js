@@ -63,7 +63,7 @@ function Shope(name,minCustomers,maxCustomers,averageCookies){
     Shope.prototype.customersPerHour =function(){
         
         for(let i=0;i<hours.length;i++){
-            let cust=Math.ceil(randomNumber(this.minCustomers,this.maxCustomers)*this.averageCookies)
+            let cust=Math.ceil(randomNumber(this.minCustomers,this.maxCustomers))
                     this.locationInfo.push(cust);
         }
      };
