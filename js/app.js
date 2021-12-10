@@ -82,8 +82,11 @@ let Tokyo=new Shope('Tokyo',3 ,24 ,1.2 ,0);
 let Dubai=new Shope('Dubai',11 ,38 ,3.7 ,0);
 let Paris=new Shope('Paris',20 ,38 ,2.3 ,0);
 let Lima=new Shope('Lima',2 ,16 ,4.6 ,0);
-// renderTableFooter();
-//-----------------------------------------------
+Lima.customersPerHour();
+Lima.getcookiesPerchased();
+Lima.renader();
+
+
 let arrOFTotal = [];
 function CitiesHoursTotal(index) {
     let sumArrayTotal=0;
@@ -94,7 +97,7 @@ function CitiesHoursTotal(index) {
     }
     return sumArrayTotal;
 }
-//------------------------------------------------------
+
 function totalOfTotalCook(){
     let tot=0;
     for (let i = 0; i < arrOFTotal.length ; i++){
@@ -104,7 +107,7 @@ function totalOfTotalCook(){
     return tot;
 
 }
-//--------------------function to render the table footer
+
 function renderTableFooter(){
     let tableFooter = document.createElement('tr');
     mainTable.appendChild(tableFooter);
@@ -119,6 +122,7 @@ function renderTableFooter(){
         tableFooter.appendChild(eachTotal);
        
     }
+
     let totalOftotal = document.createElement('th');
     totalOftotal.textContent = totalOfTotalCook();
     tableFooter.appendChild(totalOftotal);
@@ -169,4 +173,3 @@ function renderAndCalc(){
     renderTableFooter();
 }
 renderAndCalc();
-
