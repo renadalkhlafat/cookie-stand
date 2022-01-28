@@ -82,9 +82,9 @@ let Tokyo=new Shope('Tokyo',3 ,24 ,1.2 ,0);
 let Dubai=new Shope('Dubai',11 ,38 ,3.7 ,0);
 let Paris=new Shope('Paris',20 ,38 ,2.3 ,0);
 let Lima=new Shope('Lima',2 ,16 ,4.6 ,0);
-Lima.customersPerHour();
-Lima.getcookiesPerchased();
-Lima.renader();
+// Lima.customersPerHour();
+// Lima.getcookiesPerchased();
+// Lima.renader();
 
 
 let arrOFTotal = [];
